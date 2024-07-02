@@ -4,10 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Text Matcher</title>
+    <style>
+        .app-heading{
+            text-align: center;
+        }
+        .text-container{
+            display: flex;
+            justify-content: space-around;
+        }
+        .input-text{
+            width: 300px;
+            height: 100px;
+            border-radius: 100%;
+        }
+        .input-text:hover{
+            box-shadow: 0 0 3px 3px grey;
+        }
+        .result{
+            text-align: center;
+        }
+
+    </style>
 </head>
 <body>
+    <div class="app-container">
+        <h1 class="app-heading">Text Matcher</h1>
+        <div class="text-container">
+           <input type="text" class="input-text" id="input1" onkeyup="comparetext()">
+           <input type="text" class="input-text" id="input2" onkeyup="comparetext()">
+        </div>
+        <p class="result" id="match-result"></p>
+    </div>
     <script>
+      function comparetext()
+      {
+        const input1Element = document.getElementById("input1")
+        const input2Element = document.getElementById("input2")
 
+        const resultElement = document.getElementById("match-result")
+
+        if(input1Element.value == input2Element.value){
+            resultElement.innerText = "Matched!!!!"
+            resultElement.style.color = "green"
+        }
+        else{
+             resultElement.innerText = "Not Matched!!!!"
+            resultElement.style.color = "red"
+        }
+      }
     </script>
 </body>
 </html>
